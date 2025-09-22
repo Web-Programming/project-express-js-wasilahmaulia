@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop Gaming",
+    "price": 16000000,
+    "description": "Laptop berperforma tinggi"
+  },
+  {
+    "id": 2,
+    "name": "Smartphone Pro Max",
+    "price": 12500000,
+    "description": "Smartphone flagship dengan kamera terbaik"
+  },
+  {
+    "id": 3,
+    "name": "Wireless Headphones",
+    "price": 2000000,
+    "description": "Headphone nirkabel dengan noise cancellation"
+  },
+  {
+    "id": 4,
+    "name": "Smart TV 50 Inch",
+    "price": 7500000,
+    "description": "Smart TV dengan resolusi 4K dan fitur streaming"
+  },
+  {
+    "id": 5,
+    "name": "Mechanical Keyboard",
+    "price": 850000,
+    "description": "Keyboard mekanik RGB untuk gaming"
+  },
+  {
+    "id": 6,
+    "name": "Gaming Mouse",
+    "price": 450000,
+    "description": "Mouse dengan sensor presisi tinggi"
+  },
+  {
+    "id": 7,
+    "name": "External Hard Drive 1TB",
+    "price": 900000,
+    "description": "Penyimpanan eksternal untuk backup data"
+  },
+  {
+    "id": 8,
+    "name": "Smartwatch Series 6",
+    "price": 5500000,
+    "description": "Jam tangan pintar dengan pemantau kesehatan"
+  },
+  {
+    "id": 9,
+    "name": "Tablet Android 10 Inch",
+    "price": 3200000,
+    "description": "Tablet untuk hiburan dan kerja ringan"
+  },
+  {
+    "id": 10,
+    "name": "Bluetooth Speaker",
+    "price": 600000,
+    "description": "Speaker portabel dengan suara bass kuat"
+  },
+  {
+    "id": 11,
+    "name": "Drone Kamera 4K",
+    "price": 5200000,
+    "description": "Drone dengan kamera 4K dan stabilisasi"
+  },
+  {
+    "id": 12,
+    "name": "Gaming Chair",
+    "price": 2800000,
+    "description": "Kursi gaming ergonomis untuk kenyamanan maksimal"
+  },
+  {
+    "id": 13,
+    "name": "Router WiFi 6",
+    "price": 1300000,
+    "description": "Router dengan kecepatan tinggi dan jangkauan luas"
+  },
+  {
+    "id": 14,
+    "name": "Webcam HD 1080p",
+    "price": 750000,
+    "description": "Webcam untuk keperluan video conference"
+  },
+  {
+    "id": 15,
+    "name": "Powerbank 20000mAh",
+    "price": 300000,
+    "description": "Powerbank kapasitas besar dengan fast charging"
+  },
+  {
+    "id": 16,
+    "name": "Monitor 27 Inch IPS",
+    "price": 4100000,
+    "description": "Monitor dengan panel IPS dan refresh rate tinggi"
+  },
+  {
+    "id": 17,
+    "name": "SSD NVMe 1TB",
+    "price": 2400000,
+    "description": "SSD kecepatan tinggi untuk performa optimal"
+  },
+  {
+    "id": 18,
+    "name": "Printer Inkjet",
+    "price": 1200000,
+    "description": "Printer rumahan dengan fitur scan dan copy"
+  },
+  {
+    "id": 19,
+    "name": "VR Headset",
+    "price": 6900000,
+    "description": "Perangkat realitas virtual untuk pengalaman imersif"
+  },
+  {
+    "id": 20,
+    "name": "Microphone USB",
+    "price": 800000,
+    "description": "Mikrofon kualitas studio untuk podcast atau streaming"
+  }
+]
