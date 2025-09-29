@@ -5,12 +5,12 @@
 
   <% if (search && search.length > 0) { %>
   <p class="text-muted">Hasil pencarian untuk "<%= search %>"</p>
-  <% } %> <% if (product.length === 0) { %>
+  <% } %> <% if (products.length === 0) { %>
   <div class="alert alert-warning">Produk tidak ditemukan.</div>
   <% } %>
 
   <div class="row">
-    <% product.forEach(function(product) { %>
+    <% products.forEach(function(product) { %>
     <div class="col-md-4 mb-4">
       <div class="card h-100">
         <div class="card-body d-flex flex-column">

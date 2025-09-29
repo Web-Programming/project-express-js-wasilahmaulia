@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var products = require('../data/product.json');
+var products = require('../../data/product.json');
 
 router.get('/:id', function (req, res, next) {
   const productId = parseInt(req.params.id); //Tangkap ID dari URL
