@@ -2,6 +2,13 @@
 
 <div class="container mt-5">
   <h1 class="text-center mb-4"><%= title %></h1>
+
+  <% if (search && search.length > 0) { %>
+  <p class="text-muted">Hasil pencarian untuk "<%= search %>"</p>
+  <% } %> <% if (product.length === 0) { %>
+  <div class="alert alert-warning">Produk tidak ditemukan.</div>
+  <% } %>
+
   <div class="row">
     <% product.forEach(function(product) { %>
     <div class="col-md-4 mb-4">
