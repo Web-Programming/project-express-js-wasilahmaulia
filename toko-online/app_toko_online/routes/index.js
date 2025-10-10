@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 //fungsi require selain impor file, bis aimpor resourch
+//panggil controller 
 var mainController = require('../controllers/main');
 
 /* GET home page. */
@@ -12,7 +13,9 @@ var mainController = require('../controllers/main');
 //   });
 // });
 
+//stlh controller dipanggil baru buat get 
 router.get('/', mainController.index);
 router.get('/search', mainController.search);
 
 module.exports = router;
+     

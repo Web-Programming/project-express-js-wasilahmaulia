@@ -15,4 +15,16 @@ router.get('/:id', function (req, res, next) {
     product: product,
   });
 });
+
+router.get('/:productId/review/:reviewId', function (req, res, next) {
+  const productId = req.params.productId;
+  const reviewId = req.params.reviewId;
+  // Kirim kedua parameter ke view untuk ditampilkan
+  res.render('review-detail', {
+    title: `Ulasan ${reviewId} untuk Produk ${productId}`,
+    productId: productId,
+    reviewId: reviewId,
+  });
+});
+
 module.exports = router;

@@ -21,7 +21,7 @@ const search = (req, res) => {
   });
 };
 
-// Ekspor kedua function
+// Ekspor kedua function untuk expor variabel dari controller
 module.exports = {
   index,
   search,
