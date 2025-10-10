@@ -1,29 +1,53 @@
 var express = require('express');
 var router = express.Router();
+var Products = require('../models/products');
+var productController = require('../controllers/product');
 var products = require('../../data/product.json');
 
-router.get('/:id', function (req, res, next) {
-  const productId = parseInt(req.params.id); //Tangkap ID dari URL
-  const product = products.find((p) => p.id === productId); //Cari produk by id
+// ROUTES
+router.get('/all', productController.index);
+router.get('/:id', productController.detail);
 
-  if (!product) {
-    //jika produk tidak ditemukan
-    return res.status(404).send('Produk tidak ditemukan!');
+// Controller: contoh implementasi fungsi index (ambil semua produk dari MongoDB)
+const index = async (req, res) => {
+  try {
+    const prod = await Products.find({}); // ambil seluruh data dari collection
+    res.render('index', {
+      title: 'Toko Online Sederhana - Ini dari Mongo DB',
+      products: prod,
+    });
+  } catch (err) {
+    res.status(500).send('Gagal memuat produk');
   }
-  res.render('product-detail', {
-    title: product.name,
-    product: product,
-  });
+};
+
+// ROUTE: Detail produk berdasarkan ID
+router.get('/:id', async function (req, res) {
+  try {
+    const productId = parseInt(req.params.id); // Tangkap ID dari URL
+    const product = products.find((p) => p.id === productId); // Cari produk by id
+
+    if (!product) {
+      return res.status(404).send('Produk tidak ditemukan!');
+    }
+
+    res.render('product-detail', {
+      title: product.name,
+      product: product,
+    });
+  } catch (err) {
+    res.status(500).send('Gagal memuat detail produk');
+  }
 });
 
-router.get('/:productId/review/:reviewId', function (req, res, next) {
-  const productId = req.params.productId;
-  const reviewId = req.params.reviewId;
-  // Kirim kedua parameter ke view untuk ditampilkan
+// ROUTE: Detail review produk
+router.get('/:productId/review/:reviewId', function (req, res) {
+  const { productId, reviewId } = req.params;
+
   res.render('review-detail', {
     title: `Ulasan ${reviewId} untuk Produk ${productId}`,
-    productId: productId,
-    reviewId: reviewId,
+    productId,
+    reviewId,
   });
 });
 

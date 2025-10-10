@@ -2,8 +2,9 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-
 var logger = require('morgan');
+//panggil file koneksi database
+require('./app_toko_online/models/db');
 
 //router
 //perbaikan ke-2
