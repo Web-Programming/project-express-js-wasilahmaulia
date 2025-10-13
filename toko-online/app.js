@@ -11,6 +11,8 @@ require('./app_toko_online/models/db');
 var indexRouter = require('../toko-online/app_toko_online/routes/index');
 var usersRouter = require('../toko-online/app_toko_online/routes/users');
 var productRouter = require('../toko-online/app_toko_online/routes/product'); //letakkan di atas agar rapi
+
+var apiProductRouter = require('./app_toko_online/routes/api/product');
 var engine = require('ejs-blocks'); //menggunakan ejs block
 var app = express();
 
@@ -28,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/produk', productRouter);
-
+app.use('/api/produk', apiProductRouter); //daftarkan router api
 //serving bootstrap
 app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 

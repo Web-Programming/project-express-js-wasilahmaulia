@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Products = require('../models/products');
 var productController = require('../controllers/product');
-var products = require('../../data/product.json');
+// var products = require('../../data/product.json');
 
 // ROUTES
 router.get('/all', productController.index);

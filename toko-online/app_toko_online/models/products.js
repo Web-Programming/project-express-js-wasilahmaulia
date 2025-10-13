@@ -12,9 +12,6 @@ const ProductSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: [true, 'Harga Produk harus diisi'],
-    min: [1000, 'Harga Produk minimal 1000'],
-    //min, fungsi membatasi minimum nilai
     //max : [1000, "Harga Produk maksimal 1000"]
   },
   description: {
