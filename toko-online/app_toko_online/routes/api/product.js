@@ -1,22 +1,21 @@
-const express = require('express');
 const router = express.Router();
 const productController = require('../../controllers/product');
 
-// function requireJson(req, res, next) {
-//   if (req.header['content-type'] != 'application/json') {
-//     return res.status(406).josn({
-//       status: false,
-//       message: 'Header harus application/json',
-//     });
-//   }
-//   next();
-// }
+function requireJson(req, res, next) {
+  if (req.header['content-type'] != 'application/json') {
+    return res.status(406).josn({
+      status: false,
+      message: 'Header "Content-Type" harus "application/json".',
+    });
+  }
+  next();
+}
 
 //url create - POST (/api/produk)
 //karna mau ambil tampilan home saja jadi hanya pake slash
-router.post('/', productController.create);
+router.post('/', requireJson, productController.create);
 //url read all - GET (/api/produk)
-router.post('/', productController.all);
+router.get('/', requireJson, productController.all);
 //walau alamat sama tapi method berbeda tidak masalah selagi METHODnya beda!!
 //url read one - detail - GET (/api/produk/:id)
 router.get('/:id', productController.detailproduk);
