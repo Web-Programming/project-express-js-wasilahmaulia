@@ -1,4 +1,4 @@
-// var products = require('../../data/products.json');
+var products = require('../../data/products.json');
 var Product = require('../models/products');
 
 // Controller: Menampilkan semua produk
@@ -18,10 +18,14 @@ const index = async (req, res) => {
 // Controller: Menampilkan detail produk berdasarkan ID
 const detail = async (req, res) => {
   try {
+    //const productId = parseInt(req.params.id); //Tangkap ID dari URL
+    //const product = products.find(p => p.id === productId); //Cari produk by id
+
     const productId = req.params.id;
     const product = await Product.findById(productId);
 
     if (!product) {
+      //jika produk tidak ditemukan
       return res.status(404).send('Produk tidak ditemukan!');
     }
 
@@ -30,7 +34,7 @@ const detail = async (req, res) => {
       product: product,
     });
   } catch (err) {
-    res.status(500).send('Gagal memuat detail produk');
+    res.status(400).send('Gagal memuat detail produk');
   }
 };
 
@@ -48,14 +52,12 @@ const all = async (req, res) => {
     res.status(500).json({
       status: false,
       message: 'Gagal mengambil data produk',
-      error: err.message,
     });
   }
 };
 
 //Create/insert Data
 const create = async (req, res) => {
-  console.log('REQ BODY:', req.body);
   try {
     //1. ambil data dari request body
     const newProduct = new Product({
@@ -71,15 +73,20 @@ const create = async (req, res) => {
     res.status(200).json({
       status: true,
       message: 'produk berhasil disimpan',
-      detail: product,
+      data: product,
     });
   } catch (err) {
-    console.error('CREATE PRODUCT ERROR:', err); //syntax console untuk mngetahui eror
-    res.status(500).json({
-      status: false,
-      message: 'Internal server eror',
-      error: err.message,
-    });
+    if (err.name === 'ValidationError') {
+      res.status(400).json({
+        status: false,
+        message: err.message,
+      });
+    } else {
+      res.status(500).json({
+        status: false,
+        message: 'Internal server error',
+      });
+    }
   }
 };
 

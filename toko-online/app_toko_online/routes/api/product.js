@@ -2,6 +2,7 @@ const router = express.Router();
 const productController = require('../../controllers/product');
 
 function requireJson(req, res, next) {
+  // Periksa apakah Content-Type adalah application/json
   if (req.header['content-type'] != 'application/json') {
     return res.status(406).josn({
       status: false,

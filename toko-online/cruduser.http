@@ -1,41 +1,98 @@
-### GET All Users
-GET http://localhost:3000/api/user
+### GET All Orders (Admin Only)
+GET http://localhost:3000/api/orders
 
-### Insert New User
-POST http://localhost:3000/api/user
+### Create New Order
+POST http://localhost:3000/api/orders
 content-type: application/json
 
 {
-    "username": "johndoe",
-    "email": "johndoe@example.com",
-    "password": "password123",
-    "address": "Jl. Contoh No. 123, Jakarta",
-    "isAdmin": false
+    "isAdmin": true,
+    "user": "68f5f80500964c6ea40e6012",
+    "orderItems": [
+        {
+            "product": "68ecc2b44d49272f5636f322",
+            "quantity": 1
+        },
+        {
+            "product": "68f5f84400964c6ea40e6017",
+            "quantity": 1
+        }
+    ]
 }
 
-### Insert Admin User
-POST http://localhost:3000/api/user
+### Create Order with Single Item
+POST http://localhost:3000/api/orders
 content-type: application/json
 
 {
-    "username": "adminuser",
-    "email": "admin@example.com",
-    "password": "admin123",
-    "address": "Jl. Admin No. 456, Bandung",
-    "isAdmin": true
+    "user": "68f5f80500964c6ea40e6012",
+    "orderItems": [
+        {
+            "product": "68ecc2b44d49272f5636f322",
+            "quantity": 1
+        }
+    ]
 }
 
-### Detail User (Replace with actual user ID)
-GET http://localhost:3000/api/user/68f21203dc9df00aa4cfaf94
+### Get Order Detail (Replace with actual order ID)
+GET http://localhost:3000/api/orders/68f5f8d200964c6ea40e601b
 
-### Update User (Replace with actual user ID)
-PUT http://localhost:3000/api/user/68f21203dc9df00aa4cfaf94
+### Update Order Status to Processing (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f5f8d200964c6ea40e601b
 content-type: application/json
 
 {
-    "address": "Jl. Update No. 789, Surabaya",
-    "email": "newemail@example.com"
+    "status": "Processing"
 }
 
-### Delete User (Replace with actual user ID)
-DELETE http://localhost:3000/api/user/67113abc123def456789abcd
+### Update Order Status to Shipped (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f5f8d200964c6ea40e601b
+content-type: application/json
+
+{
+    "status": "Shipped"
+}
+
+### Update Order Status to Delivered (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f5f80500964c6ea40e6012
+content-type: application/json
+
+{
+    "status": "delivered"
+}
+
+### Update Order Status to Cancelled (Admin Only - Replace with actual order ID)
+PUT http://localhost:3000/api/orders/68f5f80500964c6ea40e6012
+content-type: application/json
+
+{
+    "status": "cancelled"
+}
+
+### Test Order with Invalid Product ID (Should return 404)
+POST http://localhost:3000/api/orders
+content-type: application/json
+
+{
+    "user": "68f5f80500964c6ea40e6012",
+    "orderItems": [
+        {
+            "product": "000000000000000000000000",
+            "quantity": 1
+        }
+    ]
+}
+
+### Test Order with Invalid User ID (Should return validation error)
+POST http://localhost:3000/api/orders
+content-type: application/json
+
+{
+    "user": "000000000000000000000000",
+    "orderItems": [
+        {
+            "product": "68ecc2b44d49272f5636f322",
+            "quantity": 1
+        }
+    ]
+}

@@ -8,21 +8,18 @@ const index = (req, res) => {
   });
 };
 
-const search = (req, res) => {
-  const q = req.query.q?.toLowerCase() || '';
+// const search = (req, res) => {
+//   const q = req.query.q?.toLowerCase() || '';
 
-  // Filter produk berdasarkan nama (case-insensitive)
-  const filtered = products.filter((p) => p.name.toLowerCase().includes(q));
+//   // Filter produk berdasarkan nama (case-insensitive)
+//   const filtered = products.filter((p) => p.name.toLowerCase().includes(q));
 
-  res.render('index', {
-    title: 'Hasil Pencarian',
-    products: filtered,
-    search: q, // kirim kembali query pencarian ke view
-  });
-};
+//   res.render('index', {
+//     title: 'Hasil Pencarian',
+//     products: filtered,
+//     search: q, // kirim kembali query pencarian ke view
+//   });
+// };
 
 // Ekspor kedua function untuk expor variabel dari controller
-module.exports = {
-  index,
-  search,
-};
+module.exports = { index };
